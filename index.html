@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dra. Bruna Dias - Endocrinologista especializada em diabetes, tireoide, obesidade e metabolismo. Atendimento em São Paulo, Rio Verde-GO e Telemedicina.">
+    <title>Dra. Bruna Dias | Endocrinologista - São Paulo e Telemedicina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS RESET & VARIABLES
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #446454;
+            --green-dark: #3a5648;
+            --green-light: #5a7a6a;
+            --beige: #c4b195;
+            --beige-light: #d4c4a8;
+            --beige-dark: #a89770;
+            --white: #FFFFFF;
+            --white-off: #F9F7F4;
+            --gray: #6a6a6a;
+            --gray-light: #a8a8a8;
+            --black: #1a1a1a;
+            --font-elegant: 'Cormorant Garamond', serif;
+            --font-modern: 'Montserrat', sans-serif;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 40px rgba(68, 100, 84, 0.15);
+            --shadow-beige: 0 5px 30px rgba(196, 177, 149, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-modern);
+            background-color: var(--white-off);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-gradient {
+            color: var(--beige-dark);
+        }
+
+        /* ============================================
+           BARRA DE PROGRESSO
+           ============================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--beige));
+            z-index: 10000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(68, 100, 84, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-elegant);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--beige);
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--beige);
+            color: var(--green);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .header-cta:hover {
+            background: var(--beige-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-beige);
+        }
+
+        .header-cta svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(68, 100, 84, 0) 0%,
+                rgba(68, 100, 84, 0) 35%,
+                rgba(68, 100, 84, 0.3) 50%,
+                rgba(68, 100, 84, 0.6) 65%,
+                rgba(68, 100, 84, 0.85) 80%,
+                rgba(68, 100, 84, 1) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 20px 60px 20px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(196, 177, 149, 0.2);
+            border: 1px solid var(--beige);
+            color: var(--beige-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards 0.2s;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-elegant);
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--white);
+            white-space: nowrap;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.4s;
+        }
+
+        .hero-content h1 span {
+            color: var(--beige);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        .hero-subtitle span {
+            color: var(--beige);
+            margin: 0 10px;
+        }
+
+        .hero-cta {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards 0.6s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                white-space: normal;
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                padding-bottom: 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        /* ============================================
+           BOTÕES
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--beige);
+            color: var(--green);
+            box-shadow: var(--shadow-beige);
+        }
+
+        .btn-primary:hover {
+            background: var(--beige-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(196, 177, 149, 0.5);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============================================
+           SEÇÕES GERAL
+           ============================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-elegant);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--green);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            section {
+                padding: 100px 0;
+            }
+        }
+
+        /* ============================================
+           SOBRE
+           ============================================ */
+        .about {
+            background: var(--white);
+        }
+
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about .container {
+                grid-template-columns: 1fr 1.2fr;
+                gap: 60px;
+            }
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-photo::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--beige);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-elegant);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+            color: var(--green);
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p strong {
+            color: var(--green);
+        }
+
+        .about-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white-off);
+            border-radius: 10px;
+            border-left: 3px solid var(--beige);
+        }
+
+        .credential-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--green);
+            flex-shrink: 0;
+        }
+
+        .credential-item span {
+            font-size: 0.9rem;
+            color: var(--black);
+        }
+
+        .about-personal {
+            background: linear-gradient(135deg, rgba(68, 100, 84, 0.08), rgba(196, 177, 149, 0.08));
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .about-personal p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .about-personal span {
+            color: var(--beige-dark);
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-elegant);
+            font-size: 2.5rem;
+            color: var(--green);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           ESPECIALIDADES
+           ============================================ */
+        .specialties {
+            background: var(--white-off);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .specialties-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+
+        .specialty-card {
+            background: var(--white);
+            border: 1px solid rgba(68, 100, 84, 0.1);
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .specialty-card:hover {
+            border-color: var(--beige);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .specialty-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 50%;
+        }
+
+        .specialty-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--white);
+        }
+
+        .specialty-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--green);
+        }
+
+        .specialty-card p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           COMO FUNCIONA
+           ============================================ */
+        .how-it-works {
+            background: var(--white);
+        }
+
+        .consultation-types {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .consultation-types {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        .consultation-card {
+            background: var(--white-off);
+            border: 2px solid rgba(68, 100, 84, 0.1);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .consultation-card:hover {
+            border-color: var(--beige);
+        }
+
+        .consultation-card.featured {
+            background: linear-gradient(145deg, var(--green), var(--green-dark));
+            border-color: var(--green);
+        }
+
+        .consultation-card.featured h3,
+        .consultation-card.featured .consultation-location span,
+        .consultation-card.featured li {
+            color: var(--white);
+        }
+
+        .consultation-card.featured li::before {
+            color: var(--beige);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--beige);
+            color: var(--green);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .consultation-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(196, 177, 149, 0.2);
+            border-radius: 50%;
+        }
+
+        .consultation-card.featured .consultation-icon {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .consultation-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--green);
+        }
+
+        .consultation-card.featured .consultation-icon svg {
+            stroke: var(--beige);
+        }
+
+        .consultation-card h3 {
+            font-family: var(--font-elegant);
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .consultation-location {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .consultation-location span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .consultation-benefits {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .consultation-benefits li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .consultation-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--green);
+            border: 2px solid var(--green);
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .consultation-card.featured .btn-primary {
+            width: 100%;
+        }
+
+        /* ============================================
+           CTA INTERMEDIÁRIO
+           ============================================ */
+        .mid-cta {
+            background: linear-gradient(180deg, var(--white) 0%, var(--white-off) 50%, var(--white) 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mid-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+        }
+
+        .mid-cta::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+        }
+
+        .mid-cta-content {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mid-cta-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .mid-cta-content h3 {
+            font-family: var(--font-elegant);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 10px;
+            color: var(--green);
+        }
+
+        .mid-cta-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           VÍDEOS
+           ============================================ */
+        .videos {
+            background: var(--green);
+            padding-bottom: 60px;
+        }
+
+        .videos .section-header h2 {
+            color: var(--white);
+        }
+
+        .videos .section-header p {
+            color: var(--beige-light);
+        }
+
+        .videos-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            justify-content: center;
+        }
+
+        .videos-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-card {
+            flex: 0 0 280px;
+            aspect-ratio: 9/16;
+            border-radius: 16px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            background: var(--green-dark);
+            border: 2px solid rgba(196, 177, 149, 0.3);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--beige-light);
+            font-size: 0.85rem;
+            margin-top: 15px;
+            animation: bounceX 2s infinite;
+        }
+
+        .scroll-hint svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--beige);
+        }
+
+        @keyframes bounceX {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        @media (max-width: 968px) {
+            .videos-scroll {
+                justify-content: flex-start;
+            }
+        }
+
+                /* ============================================
+           DEPOIMENTOS
+           ============================================ */
+        .testimonials {
+            background: var(--white-off);
+            padding-bottom: 60px;
+        }
+
+        .testimonials-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            justify-content: center;
+        }
+
+        .testimonials-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background: var(--white);
+            border: 1px solid rgba(68, 100, 84, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--beige);
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 0.95rem;
+            color: var(--black);
+        }
+
+        .testimonial-info span {
+            font-size: 0.8rem;
+            color: var(--beige-dark);
+        }
+
+        @media (max-width: 968px) {
+            .testimonials-scroll {
+                justify-content: flex-start;
+            }
+        }
+
+        /* ============================================
+           CONSULTÓRIO / LOCALIZAÇÃO
+           ============================================ */
+        .location {
+            background: var(--white);
+        }
+
+        .location-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .location-gallery {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .location-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            background: var(--white-off);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(68, 100, 84, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .location-card {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        .location-map {
+            height: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .location-map {
+                height: 350px;
+            }
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: sepia(20%) hue-rotate(90deg);
+            transition: var(--transition);
+        }
+
+        .location-map:hover iframe {
+            filter: sepia(0%) hue-rotate(0deg);
+        }
+
+        .location-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .location-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(68, 100, 84, 0.15), rgba(68, 100, 84, 0.05));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .location-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--green);
+        }
+
+        .location-icon svg[fill="currentColor"] {
+            fill: var(--green);
+            stroke: none;
+            width: 20px;
+            height: 20px;
+        }
+
+        .location-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--green);
+        }
+
+        .location-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .location-text a {
+            color: var(--beige-dark);
+            font-weight: 500;
+        }
+
+        .location-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           FAQ
+           ============================================ */
+        .faq {
+            background: var(--white-off);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(68, 100, 84, 0.15);
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            color: var(--green);
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-modern);
+        }
+
+        .faq-question:hover {
+            color: var(--beige-dark);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--beige);
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer-content {
+            padding: 0 0 20px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .final-cta {
+            background: linear-gradient(145deg, var(--green), var(--green-dark));
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-elegant);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .final-cta h2 .text-gradient {
+            color: var(--beige);
+        }
+
+        .final-cta p {
+            color: var(--beige-light);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--green-dark);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-elegant);
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo span {
+            color: var(--beige);
+        }
+
+        .footer-tagline {
+            color: var(--beige-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(196, 177, 149, 0.15);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--beige);
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--beige);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover svg {
+            stroke: var(--green-dark);
+        }
+
+        .footer-social svg[fill="currentColor"] {
+            fill: var(--beige);
+            stroke: none;
+        }
+
+        .footer-social a:hover svg[fill="currentColor"] {
+            fill: var(--green-dark);
+        }
+
+        .footer-copy {
+            color: var(--beige-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-copy p {
+            margin-bottom: 5px;
+        }
+
+        /* ============================================
+           WHATSAPP FLUTUANTE
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .whatsapp-float.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                padding: 12px 18px;
+                font-size: 0.85rem;
+                bottom: 20px;
+                right: 15px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Barra de Progresso -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Dra. <span>Bruna Dias</span></div>
+                <a href="https://wa.me/5511986229566" class="header-cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Agendar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://i.postimg.cc/CL6hDDvY/1767136830072-019b718f-9ba7-79d4-9ce5-54f7a795b60a.png" alt="Dra. Bruna Dias - Endocrinologista" fetchpriority="high">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Endocrinologia & Metabologia</div>
+            <h1>Saúde hormonal com <span>ciência</span> e <span>cuidado</span></h1>
+            <p class="hero-subtitle">📍 São Paulo <span>•</span> Rio Verde-GO <span>•</span> Telemedicina</p>
+            <div class="hero-cta">
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta." class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Agendar Consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-photo reveal">
+                <img src="https://i.postimg.cc/X7Bf9Nsf/564593936-18541070578056132-5061196835059345945-n.jpg" alt="Dra. Bruna Dias">
+            </div>
+            <div class="about-content reveal">
+                <h2>Dra. Bruna <span class="text-gradient">Dias</span></h2>
+                <p>Sou <strong>endocrinologista</strong> formada pela renomada Santa Casa de São Paulo, com especialização em Clínica Médica pelo Hospital Tatuapé.</p>
+                <p>Minha missão é oferecer um <strong>atendimento humanizado</strong> e baseado em evidências científicas, ajudando você a alcançar equilíbrio hormonal e qualidade de vida.</p>
+                
+                <div class="about-credentials">
+                    <div class="credential-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Endocrinologista (RQE 142090) - Santa Casa de SP</span>
+                    </div>
+                    <div class="credential-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Clínica Médica - Hospital Tatuapé</span>
+                    </div>
+                    <div class="credential-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Presencial e Telemedicina</span>
+                    </div>
+                </div>
+
+                <div class="about-personal">
+                    <p>Mãe da <span>Ana Luísa</span>, casada com <span>Lucas</span>, goiana que adora pequi e sonha em voltar a morar perto da família. 💚</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">153+</div>
+                        <div class="stat-label">Avaliações 5⭐</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Cidades</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Dedicação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ESPECIALIDADES -->
+    <section class="specialties" id="especialidades">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Áreas de <span class="text-gradient">Atuação</span></h2>
+                <p>Cuidado especializado para sua saúde hormonal</p>
+            </div>
+            <div class="specialties-grid reveal">
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Tireoide." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4z"></path><path d="M12 12v10"></path><path d="M8 22h8"></path></svg>
+                    </div>
+                    <h3>Tireoide</h3>
+                    <p>Hipotireoidismo, hipertireoidismo e nódulos</p>
+                </a>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Diabetes." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <h3>Diabetes</h3>
+                    <p>Controle glicêmico e prevenção de complicações</p>
+                </a>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Obesidade." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h3>Obesidade</h3>
+                    <p>Tratamento individualizado e medicamentos modernos</p>
+                </a>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Colesterol." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3>Colesterol</h3>
+                    <p>Controle de dislipidemias e risco cardiovascular</p>
+                </a>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Metabolismo Ósseo." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"></path><path d="M8 6h10v10"></path></svg>
+                    </div>
+                    <h3>Metabolismo Ósseo</h3>
+                    <p>Osteoporose e saúde dos ossos</p>
+                </a>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta sobre Hormônios." class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                    </div>
+                    <h3>Distúrbios Hormonais</h3>
+                    <p>Hiperprolactinemia e outras alterações</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Como <span class="text-gradient">Funciona</span></h2>
+                <p>Duas formas de cuidar da sua saúde</p>
+            </div>
+            <div class="consultation-types reveal">
+                <div class="consultation-card">
+                    <div class="consultation-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3>Consulta Presencial</h3>
+                    <div class="consultation-location">
+                        <span>📍 São Paulo - SP</span>
+                        <span>📍 Rio Verde - GO</span>
+                    </div>
+                    <ul class="consultation-benefits">
+                        <li>Exame físico completo</li>
+                        <li>Avaliação detalhada</li>
+                        <li>Ambiente acolhedor</li>
+                        <li>Primeira consulta ou retorno</li>
+                    </ul>
+                    <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta presencial." class="btn btn-secondary">Agendar Presencial</a>
+                </div>
+                <div class="consultation-card featured">
+                    <div class="featured-badge">Mais Procurada</div>
+                    <div class="consultation-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>Telemedicina</h3>
+                    <div class="consultation-location">
+                        <span>🌐 De qualquer lugar do Brasil</span>
+                    </div>
+                    <ul class="consultation-benefits">
+                        <li>Conforto da sua casa</li>
+                        <li>Sem deslocamento</li>
+                        <li>Mesma qualidade de atendimento</li>
+                        <li>Receitas e pedidos digitais</li>
+                    </ul>
+                    <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma teleconsulta." class="btn btn-primary">Agendar Telemedicina</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIÁRIO -->
+    <section class="mid-cta">
+        <div class="container">
+            <div class="mid-cta-content reveal">
+                <div class="mid-cta-icon">🩺</div>
+                <h3>Pronta para cuidar da sua <span class="text-gradient">saúde hormonal</span>?</h3>
+                <p>Agende sua consulta e tenha um atendimento personalizado, com ciência e acolhimento.</p>
+                <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Gostaria de agendar uma consulta." class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Quero Agendar Minha Consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VÍDEOS -->
+    <section class="videos" id="videos">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Conheça meu <span class="text-gradient">Trabalho</span></h2>
+                <p>Conteúdo educativo sobre saúde hormonal</p>
+            </div>
+        </div>
+        <div class="videos-scroll reveal">
+            <div class="video-card">
+                <iframe src="https://player.vimeo.com/video/1150513291?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" allow="autoplay; fullscreen; picture-in-picture" title="Telemedicina"></iframe>
+            </div>
+            <div class="video-card">
+                <iframe src="https://player.vimeo.com/video/1150513280?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" allow="autoplay; fullscreen; picture-in-picture" title="Nódulos na Tireoide"></iframe>
+            </div>
+            <div class="video-card">
+                <iframe src="https://player.vimeo.com/video/1150513269?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1" allow="autoplay; fullscreen; picture-in-picture" title="GLP-1 Obesidade"></iframe>
+            </div>
+        </div>
+        <div class="container">
+            <div class="scroll-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                Arraste para ver mais
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>O que dizem <span class="text-gradient">minhas pacientes</span></h2>
+                <p>Avaliações reais do Doctoralia</p>
+            </div>
+        </div>
+        <div class="testimonials-scroll reveal">
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"A Dra Bruna é maravilhosa! Muito atenciosa, explica tudo direitinho, além de ser extremamente inteligente! Confio de olhos fechados."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div class="testimonial-info">
+                        <h4>Mariana Grandesi</h4>
+                        <span>Teleconsulta</span>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"Fiquei impressionada com o profissionalismo e atenção. Recomendo muito!"</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">C</div>
+                    <div class="testimonial-info">
+                        <h4>Cleide Rossoni</h4>
+                        <span>Teleconsulta</span>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"Médica calma e atenciosa. Me explicou muito bem cada dúvida que eu tinha."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">F</div>
+                    <div class="testimonial-info">
+                        <h4>Fabiana</h4>
+                        <span>Consulta Presencial</span>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"Atenciosa e detalhista. Me passou segurança e me apoiou na resolução do problema."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">N</div>
+                    <div class="testimonial-info">
+                        <h4>Nathalia</h4>
+                        <span>Teleconsulta</span>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"Excelente, super atenciosa e competente. Super indico para todos!"</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">R</div>
+                    <div class="testimonial-info">
+                        <h4>Renata Bifaroni</h4>
+                        <span>Teleconsulta</span>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote>"Ótimo atendimento, excelente profissional, explicou tudo certinho."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">G</div>
+                    <div class="testimonial-info">
+                        <h4>Gabriela Sampaio</h4>
+                        <span>Teleconsulta</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- CONSULTÓRIO -->
+    <section class="location" id="consultorio">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Meu <span class="text-gradient">Consultório</span></h2>
+                <p>Ambiente acolhedor para seu atendimento</p>
+            </div>
+            
+            <!-- Galeria do Consultório -->
+            <div class="location-gallery reveal">
+                <div class="gallery-item">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/c73197ae/c73197ae-1967-45dc-9524-3541d50c3aa6_large.jpg" alt="Fachada do Consultório">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/9505ad88/9505ad88-8473-4ff3-b0d0-d0c46c3918cd_large.jpg" alt="Consultório">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/3b8d8bb2/3b8d8bb2-94b0-4aa6-9d91-42ddf30d4327_large.jpg" alt="Sala de Atendimento">
+                </div>
+            </div>
+
+            <!-- Card de Localização -->
+            <div class="location-card reveal">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.5!2d-46.5768!3d-23.5289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ed4eec3b7e1%3A0x123456789!2sRua%20Restinga%2C%20113%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização"></iframe>
+                </div>
+                <div class="location-info">
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="location-text">
+                            <h4>Endereço - São Paulo</h4>
+                            <p>Rua Restinga, 113 - Sala 1715<br>Tatuapé - São Paulo, SP</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="location-text">
+                            <h4>Horário</h4>
+                            <p>Segunda a Sexta: 8h às 18h</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </div>
+                        <div class="location-text">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/5511986229566">(11) 98622-9566</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Dúvidas <span class="text-gradient">Frequentes</span></h2>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como funciona a teleconsulta?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">A teleconsulta é realizada por videochamada, com a mesma qualidade e atenção de uma consulta presencial. Você recebe receitas e pedidos de exames de forma digital, válidos em todo o Brasil.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quais condições a Dra. Bruna trata?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Trato condições como diabetes, doenças da tireoide (hipotireoidismo, hipertireoidismo, nódulos), obesidade, colesterol alto, osteoporose, distúrbios hormonais e outras alterações endocrinológicas.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qual o valor da consulta?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">A consulta presencial é R$ 500 e a teleconsulta R$ 400. Entre em contato pelo WhatsApp para saber mais sobre formas de pagamento.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        A Dra. atende por convênio?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Atualmente o atendimento é particular, garantindo mais tempo e atenção para cada paciente. Forneço recibo para reembolso em planos que oferecem essa opção.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Preciso levar exames na primeira consulta?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Se você tiver exames recentes, traga-os. Mas não se preocupe caso não tenha — durante a consulta avaliarei a necessidade de solicitar novos exames.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="reveal">Pronta para cuidar da sua <span class="text-gradient">saúde hormonal</span>?</h2>
+            <p class="reveal">Agende sua consulta e tenha um atendimento com ciência, cuidado e acolhimento.</p>
+            <a href="https://wa.me/5511986229566?text=Olá Dra. Bruna! Vim pelo seu site e gostaria de agendar uma consulta." class="btn btn-primary reveal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar Minha Consulta
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Dra. Bruna <span>Dias</span></div>
+            <p class="footer-tagline">Endocrinologia & Metabologia</p>
+            <div class="footer-social">
+                <a href="https://instagram.com/brunadias.endocrino" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.youtube.com/@DraBrunaDias" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                </a>
+                <a href="https://wa.me/5511986229566" target="_blank" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+            </div>
+            <div class="footer-copy">
+                <p>© 2024 Dra. Bruna Dias - CRM/SP | RQE 142090</p>
+                <p>Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5511986229566?text=Olá! Vim pelo site e gostaria de agendar uma consulta." class="whatsapp-float" id="whatsappFloat" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Consulta
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Barra de progresso
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const revealTop = element.getBoundingClientRect().top;
+                if (revealTop < window.innerHeight - 80) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // WhatsApp Float visibility
+        const whatsappFloat = document.getElementById('whatsappFloat');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                whatsappFloat.classList.add('visible');
+            } else {
+                whatsappFloat.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
