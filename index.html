@@ -1348,6 +1348,49 @@
             stroke: var(--green);
         }
 
+                .videos-cta {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(196, 177, 149, 0.2);
+        }
+
+        .videos-cta p {
+            color: var(--beige-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--beige);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .btn-instagram:hover {
+            background: var(--beige);
+            color: var(--green);
+        }
+
+        .btn-instagram svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-instagram:hover svg {
+            stroke: var(--green);
+        }
+
     </style>
 </head>
 <body>
@@ -1549,7 +1592,7 @@
         </div>
     </section>
 
-    <!-- VÍDEOS -->
+        <!-- VÍDEOS -->
     <section class="videos" id="videos">
         <div class="container">
             <div class="section-header reveal">
@@ -1572,6 +1615,13 @@
             <div class="scroll-hint">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 Arraste para ver mais
+            </div>
+            <div class="videos-cta reveal">
+                <p>Quer mais conteúdo sobre saúde hormonal?</p>
+                <a href="https://instagram.com/brunadias.endocrino" target="_blank" class="btn btn-instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Siga @brunadias.endocrino
+                </a>
             </div>
         </div>
     </section>
