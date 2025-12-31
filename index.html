@@ -197,7 +197,7 @@
             z-index: 2;
         }
 
-        .hero-content {
+                .hero-content {
             position: relative;
             z-index: 3;
             text-align: center;
@@ -207,7 +207,7 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(196, 177, 149, 0.2);
+            background: rgba(68, 100, 84, 0.7);
             border: 1px solid var(--beige);
             color: var(--beige-light);
             padding: 8px 20px;
@@ -216,6 +216,8 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1s ease forwards 0.2s;
@@ -229,7 +231,10 @@
             margin-bottom: 15px;
             color: var(--white);
             white-space: nowrap;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 4px 30px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(68, 100, 84, 0.5);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s ease forwards 0.4s;
@@ -237,13 +242,20 @@
 
         .hero-content h1 span {
             color: var(--beige);
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 4px 30px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(196, 177, 149, 0.4);
         }
 
         .hero-subtitle {
             font-size: clamp(0.85rem, 2vw, 1rem);
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--white);
             margin-bottom: 25px;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.6),
+                0 4px 20px rgba(0, 0, 0, 0.4);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1s ease forwards 0.5s;
@@ -258,6 +270,12 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1s ease forwards 0.6s;
+        }
+
+        .hero-cta .btn-primary {
+            box-shadow: 
+                0 5px 20px rgba(196, 177, 149, 0.4),
+                0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes fadeUp {
@@ -283,7 +301,6 @@
                 font-size: 3.2rem;
             }
         }
-
         /* ============================================
            BOTÕES
            ============================================ */
@@ -1287,7 +1304,50 @@
                 right: 15px;
             }
         }
-        
+
+                .videos-cta {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(196, 177, 149, 0.2);
+        }
+
+        .videos-cta p {
+            color: var(--beige-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--beige);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .btn-instagram:hover {
+            background: var(--beige);
+            color: var(--green);
+        }
+
+        .btn-instagram svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-instagram:hover svg {
+            stroke: var(--green);
+        }
+
     </style>
 </head>
 <body>
@@ -1774,7 +1834,7 @@
                 </a>
             </div>
             <div class="footer-copy">
-                <p>© 2024 Dra. Bruna Dias - CRM/SP | RQE 142090</p>
+                <p>© 2026 Dra. Bruna Dias - CRM/SP | RQE 142090</p>
                 <p>Todos os direitos reservados.</p>
             </div>
         </div>
